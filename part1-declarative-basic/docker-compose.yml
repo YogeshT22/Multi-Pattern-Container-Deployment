@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # This is the service for our custom Nginx web server
+  nginx-service:
+    container_name: my-web-server
+    build:
+      context: ./nginx-web  # Tells Docker Compose to look for the Dockerfile in the 'nginx-web' directory
+    ports:
+      - "8080:80"  # Maps port 8080 on your local machine to port 80 inside the container
+
+  # This is the service for LocalStack, our AWS cloud simulator
+  localstack:
+    container_name: local-aws-cloud
+    image: localstack/localstack:latest # Use the official LocalStack image from Docker Hub
+    environment:
+      - SERVICES=s3 # We are only enabling the S3 service for now to save resources
+      - DEBUG=0
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    ports:
+      - "4566:4566"        # This is the main port LocalStack uses for all services
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
