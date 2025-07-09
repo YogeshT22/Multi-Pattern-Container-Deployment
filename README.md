@@ -87,3 +87,6 @@ run python3 cleanup.py.
 This diagram illustrates the dynamic content flow, where the Nginx container is decoupled from its content.
 
 ![Architecture Diagram](./src/architecture-diagram.png)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
