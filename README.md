@@ -1,4 +1,4 @@
-# Project: Multi-Pattern Containerized Web Server Deployment
+# Mini Project 1: Multi-Pattern Containerized Web Server Deployment
 
 This project demonstrates foundational DevOps principles by deploying an Nginx web server using three distinct, progressively complex patterns. It uses Docker, Docker Compose, Python, and LocalStack to simulate a real-world cloud environment on a local machine, showcasing a journey from basic containerization to advanced, programmatic automation.
 
