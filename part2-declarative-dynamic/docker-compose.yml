@@ -1,4 +1,10 @@
-version: '3.8'
+# --------------------------------
+# Purpose: Dockerfile for Nginx web server with AWS CLI
+# Target: Simulating Cloud with Docker + LocalStack
+# This is personal work for educational purposes.
+# --------------------------------
+
+version: "3.8"
 
 services:
   nginx-service:

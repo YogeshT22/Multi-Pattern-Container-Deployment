@@ -1,3 +1,9 @@
+# --------------------------------
+# Purpose: Cleanup script for Docker containers and networks
+# Target: Simulating Cloud with Docker + LocalStack
+# This is personal work for educational purposes.
+# --------------------------------
+
 import docker
 
 CONTAINER_NAME = 'py-web-server'

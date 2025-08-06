@@ -1,13 +1,18 @@
-version: '3.8'
+# --------------------
+# Purpose: This Docker Compose file sets up a simple web server using Nginx and simulates AWS cloud services with LocalStack.
+# target: Local Web Server Deployment (Simulating Cloud with Docker + LocalStack)
+# This is personal project code, not for production use.
+# --------------------
+
+version: "3.8"
 
 services:
-  # This is the service for our custom Nginx web server
   nginx-service:
     container_name: my-web-server
     build:
-      context: ./nginx-web  # Tells Docker Compose to look for the Dockerfile in the 'nginx-web' directory
+      context: ./nginx-web # Tells Docker Compose to look for the Dockerfile in the 'nginx-web' directory
     ports:
-      - "8080:80"  # Maps port 8080 on your local machine to port 80 inside the container
+      - "8080:80" # Maps port 8080 on your local machine to port 80 inside the container
 
   # This is the service for LocalStack, our AWS cloud simulator
   localstack:
@@ -18,7 +23,7 @@ services:
       - DEBUG=0
       - DOCKER_HOST=unix:///var/run/docker.sock
     ports:
-      - "4566:4566"        # This is the main port LocalStack uses for all services
+      - "4566:4566" # This is the main port LocalStack uses for all services
     volumes:
       - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
